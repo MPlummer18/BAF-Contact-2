@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tell Harrisburg: Prioritize Equitable Nursing Home Funding</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Pennsylvania Nursing Home Funding Action</p>
+      <h1>Tell your state legislators to prioritize equitable nursing home funding.</h1>
+      <p class="lede">Enter your Pennsylvania address, confirm your state Representative and Senator, and send one ready-to-review letter addressed to both officials and delivered to both offices.</p>
+    </div>
+  </header>
+
+  <main class="container page-grid">
+    <section class="card" aria-labelledby="lookup-heading">
+      <h2 id="lookup-heading">Find your legislators</h2>
+      <p class="help-text">Please enter a Pennsylvania address. Required fields are marked with an asterisk.</p>
+
+      <form id="lookup-form" class="form-grid">
+        <label class="full">Address <span>*</span>
+          <input id="street" name="street" autocomplete="street-address" required />
+        </label>
+        <label>City / Town <span>*</span>
+          <input id="city" name="city" autocomplete="address-level2" required />
+        </label>
+        <label>State <span>*</span>
+          <input id="state" name="state" value="PA" maxlength="2" required />
+        </label>
+        <label>ZIP Code <span>*</span>
+          <input id="zip" name="zip" autocomplete="postal-code" inputmode="numeric" required />
+        </label>
+
+        <details class="full test-mode">
+          <summary>Developer test mode: manually enter district numbers</summary>
+          <div class="test-grid">
+            <label>House District
+              <input id="manualHouseDistrict" name="manualHouseDistrict" inputmode="numeric" placeholder="e.g., 19" />
+            </label>
+            <label>Senate District
+              <input id="manualSenateDistrict" name="manualSenateDistrict" inputmode="numeric" placeholder="e.g., 8" />
+            </label>
+          </div>
+        </details>
+
+        <div class="button-row full">
+          <button type="submit" class="primary">Search</button>
+          <button type="button" id="clear-btn" class="secondary">Clear</button>
+        </div>
+      </form>
+      <div id="lookup-status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card hidden" id="confirm-card" aria-labelledby="confirm-heading">
+      <h2 id="confirm-heading">Confirm your match</h2>
+      <div id="legislator-results" class="legislator-results"></div>
+      <button id="continue-btn" class="primary full-width">Continue to letter</button>
+    </section>
+
+    <section class="card hidden wide" id="letter-card" aria-labelledby="letter-heading">
+      <h2 id="letter-heading">Review and send your letter</h2>
+      <p class="help-text">Your letter is addressed to both your Representative and Senator, then sent to both email addresses. Your signature block is inserted automatically, and you can edit the body before sending.</p>
+
+      <form id="letter-form" class="form-grid">
+        <label>First Name <span>*</span>
+          <input id="firstName" name="firstName" autocomplete="given-name" required />
+        </label>
+        <label>Last Name <span>*</span>
+          <input id="lastName" name="lastName" autocomplete="family-name" required />
+        </label>
+        <label>Email <span>*</span>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </label>
+        <label>Phone
+          <input id="phone" name="phone" autocomplete="tel" />
+        </label>
+
+        <label class="full">Letter <span>*</span>
+          <textarea id="letter" name="letter" rows="18" required></textarea>
+        </label>
+
+        <div class="signature-box full">
+          <strong>Signature block</strong>
+          <p id="signature-preview"></p>
+        </div>
+
+        <div class="button-row full">
+          <button type="submit" class="primary">Send My Letter to Both Legislators</button>
+        </div>
+      </form>
+      <div id="send-status" class="status" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
